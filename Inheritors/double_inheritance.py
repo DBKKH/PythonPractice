@@ -6,18 +6,20 @@ class Base1:
     def some_method(self):
         print(f'a: {self.a}')
 
+
 class Base2:
-    def __init__(self, a):
+    def __init__(self, b):
         print('Base2 init')
-        self.a = a
+        self.b = b
 
     def other_method(self):
         print(f'a: {self.a}')
 
-class Derived(Base2, Base1):
+
+class Derived(Base1, Base2):
     def __init__(self, a, b, c):
-        Base1.__init__(a)
-        Base2.__init__(b)
+        Base1.__init__(self, a)
+        Base2.__init__(self, b)
         print('Derived init')
         self.c = c
 
